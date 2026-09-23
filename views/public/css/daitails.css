@@ -1,0 +1,178 @@
+/* =========================================
+   OFFER DETAIL PAGE STYLES
+   ========================================= */
+.content-container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    width: 100%;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 32px 0 80px;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 24px;
+}
+
+.back-link:hover {
+    color: var(--color-text-main);
+}
+
+.detail-card {
+    background-color: var(--color-bg-white);
+    border-radius: var(--radius-md);
+    padding: 48px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+}
+
+.detail-top-info {
+    margin-bottom: 16px;
+}
+
+.company-sub {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.job-title {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--color-text-main);
+}
+
+.meta-badges {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 32px;
+}
+
+.meta-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background-color: var(--color-bg-light);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-pill);
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+}
+
+.section-block {
+    margin-bottom: 32px;
+}
+
+.section-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-main);
+    margin-bottom: 12px;
+}
+
+.section-text {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.profile-list {
+    list-style: disc;
+    padding-left: 20px;
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.tags-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    padding: 6px 14px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-pill);
+    background-color: var(--color-bg-white);
+}
+
+.detail-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 16px;
+}
+
+.btn-full {
+    width: 100%;
+}
+
+.btn-outline {
+    background-color: var(--color-bg-white);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-main);
+}
+
+.btn-outline:hover {
+    background-color: var(--color-bg-light);
+    border-color: var(--color-text-light);
+}
+
+@media (max-width: 768px) {
+    .detail-card {
+        padding: 24px;
+    }
+    .job-title {
+        font-size: 1.5rem;
+    }
+}
+@media (max-width: 768px) {
+    .site-footer {
+        padding: 24px 0 !important;
+    }
+    .footer-top {
+        display: none !important;
+    }
+    .footer-bottom {
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        border-top: none !important;
+        padding-top: 0 !important;
+    }
+    .footer-bottom p:nth-child(1) {
+        font-size: 0 !important;
+    }
+    .footer-bottom p:nth-child(1)::before {
+        content: "Portail Stages";
+        font-size: 0.875rem;
+        font-weight: 700;
+        color: #0f172a;
+    }
+    .footer-bottom p:nth-child(2) {
+        font-size: 0 !important;
+    }
+    .footer-bottom p:nth-child(2)::before {
+        content: "\00A9 2024";
+        font-size: 0.875rem;
+        color: #94a3b8;
+    }
+}
+
