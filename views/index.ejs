@@ -8,36 +8,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="../public/css/style.css">
     <link rel="stylesheet" href="public/css/home.css">
 </head>
 <body>
-
-<header class="site-header">
-    <div class="container header-inner">
-        <div class="logo">
-            Portail Stages 
-        </div>
-        <nav class="main-nav" aria-label="Navigation principale">
-                    <ul>
-                        <li><a href="index.html" class="active" aria-current="page">Accueil</a></li>
-                        <li><a href="index.html#offres">Offres</a></li>
-                        <li><a href="pages/entreprise.ejs">Entreprises</a></li>
-                        <li><a href="pages/offres-suivies.ejs">Mes offres suivies</a></li>
-                        <li><a href="">ÀA propos</a></li>
-                    </ul>
-        </nav>
-        <a href="deposer-offre.html" class="btn btn-primary">Publier une offre</a>
-        <button class="mobile-menu-btn" aria-label="Menu">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-        </button>
-    </div> 
-</header>
-
+    <%- include('./componnents/header') %>
+    
     <main>
         <section class="hero bg-light">
             <div class="container hero-inner">
@@ -235,54 +211,7 @@
             </div>
         </section>
     </main>
-
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-top">
-                <div class="footer-brand">
-                    <div class="footer-logo">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <rect width="24" height="24" rx="4" fill="#ffffff"/>
-                            <path d="M7 16L12 9L17 16" stroke="#080808" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        Portail Stages
-                    </div>
-                    <p class="footer-desc">
-                        La plateforme de référence pour les offres de stage et d'alternance.
-                    </p>
-                </div>
-
-                <div class="footer-col">
-                    <h4>Navigation</h4>
-                    <nav aria-label="Menu pied de page">
-                        <ul>
-                            <li><a href="index.html" class="active" aria-current="page">Accueil</a></li>
-                            <li><a href="index.html#offres">Offres</a></li>
-                            <li><a href="entreprise.html">Entreprises</a></li>
-                            <li><a href="a-propos.html">ÀAA propos</a></li>
-                        </ul>
-                    </nav>
-                </div>
-
-                <div class="footer-col">
-                    <h4>Légal</h4>
-                    <nav aria-label="Liens légaux">
-                        <ul>
-                            <li><a href="#">Conditions d'utilisation</a></li>
-                            <li><a href="#">Politique de confidentialité</a></li>
-                            <li><a href="#">Mentions légales</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2024 Portail Stages — Tous droits réservés</p>
-                <p>Stage & Alternance &middot; France</p>
-            </div>
-        </div>
-    </footer>
-
+      <%- include('./componnents/footer') %>
 </body>
 </html>
 
