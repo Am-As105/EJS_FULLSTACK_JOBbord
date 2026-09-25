@@ -1,21 +1,33 @@
-
 const offerRepository = require('../reposietries/offerRepository');
 
 
-async function getOffers_Repository(request, response)
+// async function getOffers_Repository(request, response)
+// {
+//     const data_offers = await offerRepository();
+
+//     response.render('index', {offers, data_offers})
+// }
+
+async function get_index(request, response)
 {
     const data_offers = await offerRepository();
 
-    response.json(data_offers);
+    response.render('index', {offers: data_offers });
 }
 
-async function  get_index(request, response)
+
+async function get_offerById(request, response)
 {
-    // const data_offers = aait offerRepository();
+    const id = request.params.id;
 
-    response.render('index');
+    const offer = await offerRepository(id);
+
+    response.render('pages/offre-detail', { offer });
 }
+
+
 module.exports = {
-    get_index, getOffers_Repository
+    get_index,
+    getOffers_Repository,
 
 };
