@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Modifier une offre - Portail Stages</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="stylesheet" href="/css/deposer.css">
+
+</head>
+
+<body>
+
+    <%- include('../componnents/header') %>
+
+    <main class="main-content">
+
+        <div class="container">
+
+            <h1 class="page-title">Modifier l'offre</h1>
+
+            <div class="form-card">
+
+                <form action="/offers/<%= offer.offer_slug %>" method="POST">
+
+                    <input type="hidden" name="_method" value="PUT">
+
+                    <div class="form-row">
+
+                        <!-- Company -->
+
+                        <div class="form-group">
+
+                            <label class="form-label" for="company">
+
+                                Nom de l'entreprise *
+
+                            </label>
+
+                            <select class="form-control"
+
+                                    id="company"
+
+                                    name="company"
+
+                                    required>
+
+                                <% companies.forEach(company => { %>
+
+                                    <option value="<%= company.company_id %>"
+
+                                        <%= offer.company_company_id == company.company_id ? 'selected' : '' %>>
+
+                                        <%= company.company_name %>
+
+                                    </option>
+
+                                <% }) %>
+
+                            </select>
+
+                            <% if (errors.company) { %>
+                                <p><%= errors.company %></p>
+                            <% } %>
+
+                        </div>
+
+
+
+                        <!-- Title -->
+
+                        <div class="form-group">
+
+                            <label class="form-label" for="title">
+
+                                Titre du poste *
+
+                            </label>
+
+                            <input class="form-control"
+
+                                   type="text"
+
+                                   id="title"
+
+                                   name="title"
+
+                                   value="<%= offer.offer_title %>"
+
+                                   required>
+
+                            <% if (errors.title) { %>
+                                <p><%= errors.title %></p>
+                            <% } %>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="form-row">
+
+                        <!-- City -->
+
+                        <div class="form-group">
+
+                            <label class="form-label" for="city">
+
+                                Ville *
+
+                            </label>
+
+                            <input class="form-control"
+
+                                   type="text"
+
+                                   id="city"
+
+                                   name="city"
+
+                                   placeholder="ex. Paris"
+
+                                   required>
+
+                        </div>
+
+
+
+                        <!-- Contract -->
+
+                        <div class="form-group">
+
+                            <label class="form-label" for="contract">
+
+                                Type de contrat *
+
+                            </label>
+
+                            <div class="select-wrapper">
+
+                                <select class="form-control"
+
+                                        id="contract"
+
+                                        name="contract"
+
+                                        required>
+
+                                    <% contracts.forEach(contract => { %>
+
+                                        <option value="<%= contract.contra_type_id %>"
+
+                                            <%= offer.contra_type_id == contract.contra_type_id ? 'selected' : '' %>>
+
+                                            <%= contract.contra_label %>
+
+                                        </option>
+
+                                    <% }) %>
+
+                                </select>
+
+                            </div>
+
+                            <% if (errors.contract) { %>
+                                <p><%= errors.contract %></p>
+                            <% } %>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Technologies -->
+
+                    <div class="form-group">
+
+                        <label class="form-label" for="technologies">
+
+                            Technologies
+
+                        </label>
+
+                        <input class="form-control"
+
+                               type="text"
+
+                               id="technologies"
+
+                               name="technologies"
+
+                               placeholder="React, TypeScript...">
+
+                    </div>
+
+
+
+                    <!-- Description -->
+
+                    <div class="form-group">
+
+                        <label class="form-label" for="description">
+
+                            Description de la mission *
+
+                        </label>
+
+                        <textarea class="form-control"
+
+                                  id="description"
+
+                                  name="description"
+
+                                  placeholder="Contexte, responsabilités..."
+
+                                  required><%= offer.offer_description %></textarea>
+
+                        <% if (errors.description) { %>
+                            <p><%= errors.description %></p>
+                        <% } %>
+
+                    </div>
+
+
+
+                    <!-- Profile -->
+
+                    <div class="form-group">
+
+                        <label class="form-label" for="profile">
+
+                            Profil recherché
+
+                        </label>
+
+                        <textarea class="form-control"
+
+                                  id="profile"
+
+                                  name="profile"
+
+                                  placeholder="Formation, compétences..."><%= offer.offer_profile_sought %></textarea>
+
+                        <% if (errors.profile) { %>
+                            <p><%= errors.profile %></p>
+                        <% } %>
+
+                    </div>
+
+
+
+                    <!-- Contact -->
+
+                    <div class="form-group">
+
+                        <label class="form-label" for="contact">
+
+                            Contact ou lien de candidature
+
+                        </label>
+
+                        <input class="form-control"
+
+                               type="text"
+
+                               id="contact"
+
+                               name="contact"
+
+                               placeholder="email ou URL"
+
+                               value="<%= offer.offer_contact_info %>"
+
+                               required>
+
+                        <% if (errors.contact) { %>
+                            <p><%= errors.contact %></p>
+                        <% } %>
+
+                    </div>
+
+
+
+                    <button type="submit" class="btn btn-full btn-black">
+
+                        Modifier l'offre
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>
