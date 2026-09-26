@@ -10,9 +10,10 @@ route.get('/', offerController.get_index);
 // route.get('/offers', offerController.g);
 route.get('/deposer-offre', offerController.get_deposerOffer);
 route.get('/offers/:slug', offerController.get_offerByslug);
+route.get('/offers/:slug/edit', offerController.get_editOffer);
 route.post('/offers', offerController.createOffer);
 route.delete('/offers/:id', offerController.deleteOffer);
-route.post('/post', offerController.updateOffer);
 
+route.post('/offers/:slug', offerController.updateOffer);
 
 module.exports = route;
