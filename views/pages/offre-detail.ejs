@@ -1,182 +1,197 @@
 ﻿<!DOCTYPE html>
-
 <html lang="fr">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Détail de l'offre - Portail Stages</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/home.css">
-
     <link rel="stylesheet" href="/css/daitails.css">
-    <!-- <link rel="stylesheet" href=""> -->
-
 </head>
 
 <body>
 
     <%- include('../componnents/header') %>
 
-        <!-- Main Content -->
+    <main class="main-content">
 
-        <main class="main-content">
+        <div class="content-container">
 
-            <div class="content-container">
+            <a href="/" class="back-link">
 
-                <a href="/" class="back-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
 
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
 
-                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                </svg>
 
-                        <polyline points="12 19 5 12 12 5"></polyline>
+                Retour à la liste
 
-                    </svg>
+            </a>
 
-                    Retour à la liste
+            <article class="detail-card">
 
-                </a>
+                <div class="detail-top-info">
 
-                <article class="detail-card">
+                    <span class="company-sub">
+                        <%= offer.company_name %>
+                    </span>
 
-                    <div class="detail-top-info">
+                    <h1 class="job-title">
+                        <%= offer.offer_title %>
+                    </h1>
 
-                        <span class="company-sub">
-                            <%= offer.company_name %>
-                        </span>
+                </div>
 
-                        <h1 class="job-title">
-                            <%= offer.offer_title %>
-                        </h1>
 
-                    </div> 
+                <div class="meta-badges">
 
-                    <div class="meta-badges">
+                    <!-- Ville -->
 
-                        <div class="meta-badge">
+                    <div class="meta-badge">
 
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg width="18" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
 
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
 
-                                <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
 
-                            </svg>
-
-                            Bordeaux
-
-                        </div>
-
-                        <div class="meta-badge">
-
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-
-                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-
-                                <line x1="16" y1="2" x2="16" y2="6"></line>
-
-                                <line x1="8" y1="2" x2="8" y2="6"></line>
-
-                                <line x1="3" y1="10" x2="21" y2="10"></line>
-
-                            </svg>
-
-                            Stage
-
-                        </div>
+                        <%= offer.offer_city %>
 
                     </div>
 
-                    <div class="section-block">
 
-                        <h2 class="section-title">Description de la mission</h2>
+                    <!-- Type de contrat -->
 
-                        <p class="section-text">
+                    <div class="meta-badge">
 
-                            <%= offer.offer_description %>
+                        <svg width="18" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
 
-                        </p>
+                            <rect x="3" y="4" width="18" height="18" rx="2"
+                                ry="2"></rect>
 
-                    </div>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
 
-                    <div class="section-block">
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
 
-                        <h2 class="section-title">Profil recherché</h2>
+                        </svg>
 
-                        <ul class="profile-list">
-
-                            <li>
-
-                                <%= offer.offer_profile_sought %>
-
-                            </li>
-
-                        </ul>
+                        <%= offer.contra_label %>
 
                     </div>
 
-                    <div class="section-block">
+                </div>
 
-                        <h2 class="section-title">Stack technique</h2>
 
-                        <div class="tags-group">
+                <!-- Description -->
 
-                            <span class="tag">Node.js</span>
+                <div class="section-block">
 
-                            <span class="tag">Vue.js</span>
+                    <h2 class="section-title">
+                        Description de la mission
+                    </h2>
 
-                            <span class="tag">PostgreSQL</span>
+                    <p class="section-text">
+                        <%= offer.offer_description %>
+                    </p>
 
-                        </div>
+                </div>
+
+
+                <!-- Profil -->
+
+                <div class="section-block">
+
+                    <h2 class="section-title">
+                        Profil recherché
+                    </h2>
+
+                    <ul class="profile-list">
+
+                        <li>
+                            <%= offer.offer_profile_sought %>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- Technologies -->
+
+                <div class="section-block">
+
+                    <h2 class="section-title">
+                        Stack technique
+                    </h2>
+
+                    <div class="tags-group">
+
+                        <span class="tag">Node.js</span>
+                        <span class="tag">Vue.js</span>
+                        <span class="tag">PostgreSQL</span>
 
                     </div>
 
-                    <div class="detail-actions">
+                </div>
 
-                        <a href="mailto:<%= offer.offer_contact_info %>" class="btn btn-primary btn-full">
 
-                            Postuler maintenant
+                <!-- Actions -->
 
-                        </a>
+                <div class="detail-actions">
 
-                        <button class="btn btn-outline btn-full">
+                    <a href="mailto:<%= offer.offer_contact_info %>"
+                        class="btn btn-primary btn-full">
 
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        Postuler maintenant
 
-                                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                    </a>
 
-                            </svg>
+                    <button class="btn btn-outline btn-full">
 
-                            Offre sauvegardée
+                        <svg width="18" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
 
-                        </button>
+                            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
 
-                    </div>
+                        </svg>
 
-                </article>
+                        Offre sauvegardée
 
-            </div>
+                    </button>
 
-        </main>
+                </div>
 
-        <!-- Footer -->
+            </article>
 
-        <%- include('../componnents/footer') %>
+        </div>
+
+    </main>
+
+
+    <%- include('../componnents/footer') %>
 
 </body>
 
