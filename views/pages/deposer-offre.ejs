@@ -1,115 +1,253 @@
 ﻿<!DOCTYPE html>
+
 <html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    ```
     <title>Publier une offre - Portail Stages</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/deposer.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/deposer.css">
+    ```
+
 </head>
 
 <body>
 
-    <%- include('../componnents/header')%>
+    ```
+    <%- include('../componnents/header') %>
 
         <main class="main-content">
+
             <div class="container">
 
                 <h1 class="page-title">Publier une offre</h1>
 
                 <div class="form-card">
+
                     <form action="/offers" method="POST">
 
-                        <% if (errors && errors.title) { %>
-                            <p>
-                                <%= errors.title %>
-                            </p>
-                            <% } %>
+                        <div class="form-row">
 
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label class="form-label" for="company">Nom de l'entreprise *</label>
-                                        <select class="form-control" id="company" name="company" required>
-                                            <option value="" disabled selected>Choisir une entreprise</option>
+                            <!-- Company -->
+                            <div class="form-group">
 
-                                            <% companies.forEach(company=> { %>
-                                                <option value="<%= company.company_id %>">
-                                                    <%= company.company_name %>
-                                                </option>
-                                                <% }) %>
-                                        </select>
-                                    </div>
+                                <label class="form-label" for="company">
+                                    Nom de l'entreprise *
+                                </label>
 
-                                    <div class="form-group">
-                                        <label class="form-label" for="title">Titre du poste *</label>
-                                        <input class="form-control" type="text" id="title" name="title"
-                                            placeholder="ex. Développeur Front-End" required>
-                                    </div>
+                                <select class="form-control" id="company" name="company" required>
+
+                                    <option value="" disabled selected>
+                                        Choisir une entreprise
+                                    </option>
+
+                                    <% companies.forEach(company=> { %>
+
+                                        <option value="<%= company.company_id %>">
+                                            <%= company.company_name %>
+                                        </option>
+
+                                        <% }) %>
+
+                                </select>
+
+                                <% if (errors && errors.company) { %>
+                                    <p>
+                                        <%= errors.company %>
+                                    </p>
+                                    <% } %>
+
+                            </div>
+
+
+
+                            <!-- Title -->
+                            <div class="form-group">
+
+                                <label class="form-label" for="title">
+                                    Titre du poste *
+                                </label>
+
+                                <input class="form-control" type="text" id="title" name="title"
+                                    placeholder="ex. Développeur Front-End" value="<%= data?.title || '' %>" required>
+
+                                <% if (errors && errors.title) { %>
+                                    <p>
+                                        <%= errors.title %>
+                                    </p>
+                                    <% } %>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-row">
+
+                            <!-- City -->
+                            <div class="form-group">
+
+                                <label class="form-label" for="city">
+                                    Ville *
+                                </label>
+
+                                <select class="form-control" id="city" name="city" required>
+
+                                    <option value="" disabled selected>
+                                        Choisir une ville
+                                    </option>
+
+                                    <option value="Agadir">Agadir</option>
+                                    <option value="Casablanca">Casablanca</option>
+                                    <option value="Fès">Fès</option>
+                                    <option value="Marrakech">Marrakech</option>
+                                    <option value="Meknès">Meknès</option>
+                                    <option value="Nador">Nador</option>
+                                    <option value="Oujda">Oujda</option>
+                                    <option value="Rabat">Rabat</option>
+                                    <option value="Tanger">Tanger</option>
+                                    <option value="Tétouan">Tétouan</option>
+                                    <option value="El Jadida">El Jadida</option>
+                                    <option value="Kenitra">Kenitra</option>
+                                    <option value="Safi">Safi</option>
+                                    <option value="Agadir">Agadir</option>
+                                </select>
+                            </div>
+
+
+                            <!-- Contract -->
+                            <div class="form-group">
+
+                                <label class="form-label" for="contract">
+                                    Type de contrat *
+                                </label>
+
+                                <div class="select-wrapper">
+
+                                    <select class="form-control" id="contract" name="contract" required>
+
+                                        <option value="" disabled>
+                                            Choisir...
+                                        </option>
+
+                                        <% contracts.forEach(contract=> { %>
+
+                                            <option value="<%= contract.contra_type_id %>"
+                                                <%=data?.contract==contract.contra_type_id ? 'selected' : '' %>>
+
+                                                <%= contract.contra_label %>
+
+                                            </option>
+
+                                            <% }) %>
+
+                                    </select>
+
                                 </div>
 
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label class="form-label" for="city">Ville *</label>
-                                        <input class="form-control" type="text" id="city" name="city"
-                                            placeholder="ex. Paris" required>
-                                    </div>
+                                <% if (errors && errors.contract) { %>
+                                    <p>
+                                        <%= errors.contract %>
+                                    </p>
+                                    <% } %>
 
-                                    <div class="form-group">
-                                        <label class="form-label" for="contract">Type de contrat *</label>
+                            </div>
 
-                                        <div class="select-wrapper">
-                                            <select class="form-control" id="contract" name="contract" required>
+                        </div>
 
-                                                <option value="" disabled selected>Choisir...</option>
-                                                <option value="Stage">Stage</option>
-                                                <option value="Alternance">Alternance</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <div class="form-group">
-                                    <label class="form-label" for="technologies">Technologies</label>
+                        <!-- Technologies -->
+                        <div class="form-group">
 
-                                    <input class="form-control" type="text" id="technologies" name="technologies"
-                                        placeholder="React, TypeScript...">
-                                </div>
+                            <label class="form-label" for="technologies">
+                                Technologies
+                            </label>
 
-                                <div class="form-group">
-                                    <label class="form-label" for="description">Description de la mission *</label>
+                            <input class="form-control" type="text" id="technologies" name="technologies"
+                                placeholder="React, TypeScript..." value="<%= data?.technologies || '' %>">
 
-                                    <textarea class="form-control" id="description" name="description"
-                                        placeholder="Contexte, responsabilités..." required></textarea>
-                                </div>
+                        </div>
 
-                                <div class="form-group">
-                                    <label class="form-label" for="profile">Profil recherché</label>
 
-                                    <textarea class="form-control" id="profile" name="profile"
-                                        placeholder="Formation, compétences..."></textarea>
-                                </div>
+                        <!-- Description -->
+                        <div class="form-group">
 
-                                <div class="form-group">
-                                    <label class="form-label" for="contact">Contact ou lien de candidature</label>
+                            <label class="form-label" for="description">
+                                Description de la mission *
+                            </label>
 
-                                    <input class="form-control" type="text" id="contact" name="contact"
-                                        placeholder="email ou URL" required>
-                                </div>
+                            <textarea class="form-control" id="description" name="description"
+                                placeholder="Contexte, responsabilités..."
+                                required><%= data?.description || '' %></textarea>
 
-                                <button type="submit" class="btn btn-full btn-black">
-                                    Publier l'offre
-                                </button>
+                            <% if (errors && errors.description) { %>
+                                <p>
+                                    <%= errors.description %>
+                                </p>
+                                <% } %>
+
+                        </div>
+
+
+                        <!-- Profile -->
+                        <div class="form-group">
+
+                            <label class="form-label" for="profile">
+                                Profil recherché
+                            </label>
+
+                            <textarea class="form-control" id="profile" name="profile"
+                                placeholder="Formation, compétences..."><%= data?.profile || '' %></textarea>
+
+                            <% if (errors && errors.profile) { %>
+                                <p>
+                                    <%= errors.profile %>
+                                </p>
+                                <% } %>
+
+                        </div>
+
+
+                        <!-- Contact -->
+                        <div class="form-group">
+
+                            <label class="form-label" for="contact">
+                                Contact ou lien de candidature
+                            </label>
+
+                            <input class="form-control" type="text" id="contact" name="contact"
+                                placeholder="email ou URL" value="<%= data?.contact || '' %>" required>
+
+                            <% if (errors && errors.contact) { %>
+                                <p>
+                                    <%= errors.contact %>
+                                </p>
+                                <% } %>
+
+                        </div>
+
+
+                        <button type="submit" class="btn btn-full btn-black">
+                            Publier l'offre
+                        </button>
 
                     </form>
+
                 </div>
 
             </div>
-        </main>
 
+        </main>
+        ```
 
 </body>
 
