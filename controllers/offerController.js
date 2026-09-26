@@ -1,33 +1,58 @@
 const offerRepository = require('../reposietries/offerRepository');
 
-
-// async function getOffers_Repository(request, response)
-// {
-//     const data_offers = await offerRepository();
-
-//     response.render('index', {offers, data_offers})
-// }
-
 async function get_index(request, response)
 {
-    const data_offers = await offerRepository();
+    const data_offers = await offerRepository.get_offers();
 
-    response.render('index', {offers: data_offers });
+    response.render('index', {
+        offers: data_offers
+    });
 }
 
+async function get_offerByslug(request, response)
+{
+    const id = request.params.slug;
 
-async function get_offerById(request, response)
+    const offer = await offerRepository.get_offerByslug(id);
+
+    response.render('pages/offre-detail', {
+        offer
+    });
+}
+
+async function createOffer(request, response)
+{
+    const data = request.body;
+    
+
+    await offerRepository.createOffer(data);
+
+    response.redirect('/offers');
+}
+
+async function updateOffer(request, response)
+{
+    const id = request.params.id;
+    const data = request.body;
+
+    await offerRepository.updateOffer(id, data);
+
+    response.redirect(`/offers/${id}`); 
+}
+
+async function deleteOffer(request, response)
 {
     const id = request.params.id;
 
-    const offer = await offerRepository(id);
+    await offerRepository.deleteOffer(id);
 
-    response.render('pages/offre-detail', { offer });
+    response.redirect('/offers');
 }
-
 
 module.exports = {
     get_index,
-    getOffers_Repository,
-
+    get_offerByslug,
+    createOffer,
+    updateOffer,
+    deleteOffer
 };

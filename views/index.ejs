@@ -1,224 +1,359 @@
 ﻿<!DOCTYPE html>
+
 <html lang="fr">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Portail Stages - Trouve ton stage idéal</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="../public/css/style.css">
+
+    <!-- <link rel="stylesheet" href="../public/css/style.css"> -->
+
     <link rel="stylesheet" href="public/css/home.css">
+
 </head>
+
 <body>
+
     <%- include('./componnents/header') %>
-    
+
     <main>
+
         <section class="hero bg-light">
+
             <div class="container hero-inner">
-                
+
                 <div class="hero-left">
+
                     <div class="status-badge">
+
                         <span class="status-dot"></span>
+
                         1200+ offres actives
+
                     </div>
-                    
+
                     <form class="search-form" action="#" method="GET">
+
                         <div class="search-input-wrapper">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+
                                 <circle cx="11" cy="11" r="8"></circle>
+
                                 <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+
                             </svg>
-                            <label for="main-search" class="sr-only" style="position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0;">Recherche</label>
-                            <input type="text" id="main-search-desktop" class="hide-on-mobile" name="q" placeholder="Métier, entreprise, mot-clé..." style="border:none;background:transparent;width:100%;outline:none;padding:8px;">
-                            <input type="text" id="main-search-mobile" class="hide-on-desktop" name="q_mobile" placeholder="Métier, mot-clé..." style="border:none;background:transparent;width:100%;outline:none;padding:8px;">
+
+                            <label for="main-search" class="sr-only"
+                                style="position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0;">
+                                Recherche
+                            </label>
+
+                            <input type="text" id="main-search-desktop" class="hide-on-mobile" name="q"
+                                placeholder="Métier, entreprise, mot-clé..."
+                                style="border:none;background:transparent;width:100%;outline:none;padding:8px;">
+
+                            <input type="text" id="main-search-mobile" class="hide-on-desktop" name="q_mobile"
+                                placeholder="Métier, mot-clé..."
+                                style="border:none;background:transparent;width:100%;outline:none;padding:8px;">
+
                         </div>
-                        <button type="submit" class="btn btn-primary">Rechercher</button>
+
+                        <button type="submit" class="btn btn-primary">
+                            Rechercher
+                        </button>
+
                     </form>
 
                     <div class="popular-tags">
+
                         <a href="#" class="tag">React</a>
+
                         <a href="#" class="tag">Python</a>
+
                         <a href="#" class="tag">UX/UI</a>
+
                         <a href="#" class="tag">Node.js</a>
+
                     </div>
 
                     <div class="hero-stats">
+
                         <div class="stat-item">
+
                             <span class="stat-num">1200+</span>
+
                             <span class="stat-label">Offres</span>
+
                         </div>
+
                         <div class="stat-item">
+
                             <span class="stat-num">350+</span>
+
                             <span class="stat-label">Entreprises</span>
+
                         </div>
+
                         <div class="stat-item">
+
                             <span class="stat-num">98%</span>
+
                             <span class="stat-label">Satisfaction</span>
+
                         </div>
+
                     </div>
+
                 </div>
 
                 <div class="hero-right">
-                    <h1 class="hide-on-mobile">Trouve ton<br><span class="highlight-underline">stage idéal</span></h1>
-                    <h1 class="hide-on-desktop">Trouve ton stage ou alternance idéale</h1>
-                    <p class="hide-on-mobile">Des milliers d'offres de stage et d'alternance pour étudiants et jeunes diplômés. Filtrez, candidatez, décrochez.</p>
-                    <p class="hide-on-desktop">Des offres pour étudiants et jeunes diplômés</p>
+
+                    <h1 class="hide-on-mobile">
+                        Trouve ton<br>
+                        <span class="highlight-underline">stage idéal</span>
+                    </h1>
+
+                    <h1 class="hide-on-desktop">
+                        Trouve ton stage ou alternance idéale
+                    </h1>
+
+                    <p class="hide-on-mobile">
+                        Des milliers d'offres de stage et d'alternance pour étudiants et
+                        jeunes diplômés. Filtrez, candidatez, décrochez.
+                    </p>
+
+                    <p class="hide-on-desktop">
+                        Des offres pour étudiants et jeunes diplômés
+                    </p>
+
                 </div>
 
             </div>
+
         </section>
 
         <section class="filters-bar">
+
             <div class="container filters-inner">
+
                 <div class="filters-group">
+
                     <button class="filter-btn">
-                        <span class="hide-on-mobile">Toutes les villes</span><span class="hide-on-desktop">Ville</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+
+                        <span class="hide-on-mobile">Toutes les villes</span>
+
+                        <span class="hide-on-desktop">Ville</span>
+
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+
+                            <polyline points="6 9 12 15 18 9"></polyline>
+
+                        </svg>
+
                     </button>
+
                     <button class="filter-btn">
-                        <span class="hide-on-mobile">Toutes les technos</span><span class="hide-on-desktop">Technologie</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+
+                        <span class="hide-on-mobile">Toutes les technos</span>
+
+                        <span class="hide-on-desktop">Technologie</span>
+
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+
+                            <polyline points="6 9 12 15 18 9"></polyline>
+
+                        </svg>
+
                     </button>
+
                     <button class="filter-btn">
-                        <span class="hide-on-mobile">Tous les contrats</span><span class="hide-on-desktop">Contrat</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+
+                        <span class="hide-on-mobile">Tous les contrats</span>
+
+                        <span class="hide-on-desktop">Contrat</span>
+
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+
+                            <polyline points="6 9 12 15 18 9"></polyline>
+
+                        </svg>
+
                     </button>
+
                 </div>
+
                 <div class="filters-group">
+
                     <button class="filter-btn">
+
                         Plus récent
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+
+                            <polyline points="6 9 12 15 18 9"></polyline>
+
+                        </svg>
+
                     </button>
+
                 </div>
+
             </div>
+
         </section>
 
         <section id="offres" class="job-offers bg-light">
+
             <div class="container">
+
                 <div class="jobs-grid">
-                    
-                    <article class="job-card">
-                        <div class="card-header">
-                            <div>
-                                <h3 class="job-title">Développeur Full-Stack</h3>
-                                <p class="company-name">Arcturus Systems</p>
-                            </div>
-                            <div class="card-header-right" style="display: flex; align-items: center; gap: 8px;">
-                                <span class="badge badge-stage">Stage</span>
-                                <button class="btn-three-dots" aria-label="Menu d'actions" style="width: 28px; height: 28px; border-radius: 6px; display: flex; align-items: center; justify-content: center; background: transparent; color: #a0a0a0; border: 1px solid #222222; cursor: pointer;">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="job-location">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                            Bordeaux
-                        </div>
-                        <div class="job-tags">
-                            <span class="tag">Node.js</span>
-                            <span class="tag">Vue.js</span>
-                            <span class="tag">PostgreSQL</span>
-                        </div>
-                        <div class="card-footer">
-                            <span class="publish-date">Publié il y a 1 jour</span>
-                            <div class="card-actions">
-                                <button class="btn-icon active" aria-label="Retirer des favoris">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                                </button>
-                                <a href="offre-detail.html" class="btn-link">
-                                    Voir l'offre 
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                                </a>
-                            </div>
-                        </div>
-                    </article>
 
-                    <article class="job-card">
-                        <div class="card-header">
-                            <div>
-                                <h3 class="job-title">Développeur Front-End React</h3>
-                                <p class="company-name">Nexalab</p>
-                            </div>
-                            <div class="card-header-right" style="display: flex; align-items: center; gap: 8px;">
-                                <span class="badge badge-stage">Stage</span>
-                                <button class="btn-three-dots" aria-label="Menu d'actions" style="width: 28px; height: 28px; border-radius: 6px; display: flex; align-items: center; justify-content: center; background: transparent; color: #a0a0a0; border: 1px solid #222222; cursor: pointer;">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="job-location">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                            Paris
-                        </div>
-                        <div class="job-tags">
-                            <span class="tag">React</span>
-                            <span class="tag">TypeScript</span>
-                            <span class="tag">Figma</span>
-                        </div>
-                        <div class="card-footer">
-                            <span class="publish-date">Publié il y a 2 jours</span>
-                            <div class="card-actions">
-                                <button class="btn-icon" aria-label="Ajouter aux favoris">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                                </button>
-                                <a href="offre-detail.html" class="btn-link">
-                                    Voir l'offre 
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                                </a>
-                            </div>
-                        </div>
-                    </article>
+                    <% offers.forEach(offer => { %>
 
-                    <article class="job-card">
-                        <div class="card-header">
-                            <div>
-                                <h3 class="job-title">UX/UI Designer</h3>
-                                <p class="company-name">Atelier Pixel</p>
+                        <article class="job-card">
+
+                            <div class="card-header">
+
+                                <div>
+
+                                    <h3 class="job-title">
+                                        <%= offer.offer_title %>
+                                    </h3>
+
+                                    <p class="company-name">
+                                        <%= offer.company_name %>
+                                    </p>
+
+                                </div>
+
+                                <div class="card-header-right"
+                                    style="display: flex; align-items: center; gap: 8px;">
+
+                                    <span class="badge badge-stage">
+                                        Stage
+                                    </span>
+
+                                    <button class="btn-three-dots" aria-label="Menu d'actions"
+                                        style="width: 28px; height: 28px; border-radius: 6px; display: flex; align-items: center; justify-content: center; background: transparent; color: #a0a0a0; border: 1px solid #222222; cursor: pointer;">
+
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+
+                                            <circle cx="12" cy="12" r="1"></circle>
+
+                                            <circle cx="12" cy="5" r="1"></circle>
+
+                                            <circle cx="12" cy="19" r="1"></circle>
+
+                                        </svg>
+
+                                    </button>
+
+                                </div>
+
                             </div>
-                            <div class="card-header-right" style="display: flex; align-items: center; gap: 8px;">
-                                <span class="badge badge-alternance">Alternance</span>
-                                <button class="btn-three-dots" aria-label="Menu d'actions" style="width: 28px; height: 28px; border-radius: 6px; display: flex; align-items: center; justify-content: center; background: transparent; color: #a0a0a0; border: 1px solid #222222; cursor: pointer;">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
-                                </button>
+
+                            <div class="job-location">
+
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" aria-hidden="true">
+
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+
+                                    <circle cx="12" cy="10" r="3"></circle>
+
+                                </svg>
+
+                                Bordeaux
+
                             </div>
-                        </div>
-                        <div class="job-location">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                            Nantes
-                        </div>
-                        <div class="job-tags">
-                            <span class="tag">Figma</span>
-                            <span class="tag">Framer</span>
-                            <span class="tag">CSS</span>
-                        </div>
-                        <div class="card-footer">
-                            <span class="publish-date">Publié il y a 3 jours</span>
-                            <div class="card-actions">
-                                <button class="btn-icon" aria-label="Ajouter aux favoris">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                                </button>
-                                <a href="offre-detail.html" class="btn-link">
-                                    Voir l'offre 
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                                </a>
+
+                            <div class="job-tags">
+
+                                <span class="tag">Node.js</span>
+
+                                <span class="tag">Vue.js</span>
+
+                                <span class="tag">PostgreSQL</span>
+
                             </div>
-                        </div>
-                    </article>
+
+                            <div class="card-footer">
+
+                                <span class="publish-date">
+
+                                    <%= new Date(offer.date_publication).toLocaleDateString('fr-FR') %>
+
+                                </span>
+
+                                <div class="card-actions">
+
+                                    <button class="btn-icon active" aria-label="Retirer des favoris">
+
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" aria-hidden="true">
+
+                                            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path>
+
+                                        </svg>
+
+                                    </button>
+
+                                    <a href="/offers/<%= offer.offer_slug %>" class="btn-link">
+
+                                        Voir l'offre
+
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" aria-hidden="true">
+
+                                            <line x1="5" y1="12" x2="19" y2="12"></line>
+
+                                            <polyline points="12 5 19 12 12 19"></polyline>
+
+                                        </svg>
+
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+                    <% }) %>
 
                 </div>
+
             </div>
+
         </section>
+
     </main>
-      <%- include('./componnents/footer') %>
+
+    <%- include('./componnents/footer') %>
+
 </body>
+
 </html>
-
-
-
-
-
-
-
-

@@ -1,159 +1,183 @@
 ﻿<!DOCTYPE html>
+
 <html lang="fr">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Détail de l'offre - Portail Stages</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/daitails.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/home.css">
+
+    <link rel="stylesheet" href="/css/daitails.css">
+    <!-- <link rel="stylesheet" href=""> -->
+
 </head>
+
 <body>
 
-    <!-- Header -->
-    <header class="site-header">
-        <div class="container header-inner">
-            <div class="logo">
-                Portail Stages
-            </div>
-            <nav class="main-nav" aria-label="Navigation principale">
-                <ul>
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="index.html" class="active">Offres</a></li>
-                    <li><a href="offres-suivies.html">Mes offres suivies</a></li>
-                </ul>
-            </nav>
-            <a href="deposer-offre.html" class="btn btn-primary">Publier une offre</a>
-            <button class="mobile-menu-btn" aria-label="Menu">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="3" y1="12" x2="21" y2="12"></line>
-                    <line x1="3" y1="6" x2="21" y2="6"></line>
-                    <line x1="3" y1="18" x2="21" y2="18"></line>
-                </svg>
-            </button>
-        </div>
-    </header>
+    <%- include('../componnents/header') %>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <div class="content-container">
-            
-            <a href="index.html" class="back-link">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-                Retour à la liste
-            </a>
+        <!-- Main Content -->
 
-            <article class="detail-card">
-                
-                <div class="detail-top-info">
-                    <span class="company-sub">Arcturus Systems</span>
-                    <h1 class="job-title">Développeur Full-Stack</h1>
-                </div>
+        <main class="main-content">
 
-                <div class="meta-badges">
-                    <div class="meta-badge">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                        Bordeaux
+            <div class="content-container">
+
+                <a href="/" class="back-link">
+
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+
+                        <polyline points="12 19 5 12 12 5"></polyline>
+
+                    </svg>
+
+                    Retour à la liste
+
+                </a>
+
+                <article class="detail-card">
+
+                    <div class="detail-top-info">
+
+                        <span class="company-sub">
+                            <%= offer.company_name %>
+                        </span>
+
+                        <h1 class="job-title">
+                            <%= offer.offer_title %>
+                        </h1>
+
                     </div>
-                    <div class="meta-badge">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                        Stage
+
+                    <div class="meta-badges">
+
+                        <div class="meta-badge">
+
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+
+                                <circle cx="12" cy="10" r="3"></circle>
+
+                            </svg>
+
+                            Bordeaux
+
+                        </div>
+
+                        <div class="meta-badge">
+
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+
+                            </svg>
+
+                            Stage
+
+                        </div>
+
                     </div>
-                </div>
 
-                <div class="section-block">
-                    <h2 class="section-title">Description de la mission</h2>
-                    <p class="section-text">
-                        Vous participerez au développement de notre plateforme B2B en prenant en charge des tickets front et back. Stack moderne, code propre, revues régulières et mentorat senior garantis.
-                    </p>
-                </div>
+                    <div class="section-block">
 
-                <div class="section-block">
-                    <h2 class="section-title">Profil recherché</h2>
-                    <ul class="profile-list">
-                        <li>Bac+3 minimum en développement web</li>
-                        <li>Expérience pratique avec Node.js et Vue.js</li>
-                        <li>Bases solides en conception de bases de données relationnelles</li>
-                        <li>Motivation et curiosité techniques</li>
-                    </ul>
-                </div>
+                        <h2 class="section-title">Description de la mission</h2>
 
-                <div class="section-block">
-                    <h2 class="section-title">Stack technique</h2>
-                    <div class="tags-group">
-                        <span class="tag">Node.js</span>
-                        <span class="tag">Vue.js</span>
-                        <span class="tag">PostgreSQL</span>
+                        <p class="section-text">
+
+                            <%= offer.offer_description %>
+
+                        </p>
+
                     </div>
-                </div>
 
-                <div class="detail-actions">
-                    <a href="mailto:contact@arcturus.example" class="btn btn-primary btn-full">Postuler maintenant</a>
-                    <button class="btn btn-outline btn-full">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                        Offre sauvegardée
-                    </button>
-                </div>
+                    <div class="section-block">
 
-            </article>
+                        <h2 class="section-title">Profil recherché</h2>
 
-        </div>
-    </main>
+                        <ul class="profile-list">
 
-    <!-- Footer -->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-top">
-                <div class="footer-brand">
-                    <div class="footer-logo">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <rect width="24" height="24" rx="4" fill="#0F172A"/>
-                            <path d="M7 16L12 9L17 16" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        Portail Stages
-                    </div>
-                    <p class="footer-desc">
-                        La plateforme de référence pour les offres de stage et d'alternance.
-                    </p>
-                </div>
+                            <li>
 
-                <div class="footer-col">
-                    <h4>Navigation</h4>
-                    <nav aria-label="Menu pied de page">
-                        <ul>
-                            <li><a href="index.html">Accueil</a></li>
-                            <li><a href="index.html#offres">Offres</a></li>
-                            <li><a href="entreprise.html">Entreprises</a></li>
-                            <li><a href="a-propos.html">ÀAA propos</a></li>
+                                <%= offer.offer_profile_sought %>
+
+                            </li>
+
                         </ul>
-                    </nav>
-                </div>
 
-                <div class="footer-col">
-                    <h4>Légal</h4>
-                    <nav aria-label="Liens légaux">
-                        <ul>
-                            <li><a href="#">Conditions d'utilisation</a></li>
-                            <li><a href="#">Politique de confidentialité</a></li>
-                            <li><a href="#">Mentions légales</a></li>
-                        </ul>
-                    </nav>
-                </div>
+                    </div>
+
+                    <div class="section-block">
+
+                        <h2 class="section-title">Stack technique</h2>
+
+                        <div class="tags-group">
+
+                            <span class="tag">Node.js</span>
+
+                            <span class="tag">Vue.js</span>
+
+                            <span class="tag">PostgreSQL</span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="detail-actions">
+
+                        <a href="mailto:<%= offer.offer_contact_info %>" class="btn btn-primary btn-full">
+
+                            Postuler maintenant
+
+                        </a>
+
+                        <button class="btn btn-outline btn-full">
+
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+                                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+
+                            </svg>
+
+                            Offre sauvegardée
+
+                        </button>
+
+                    </div>
+
+                </article>
+
             </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2024 Portail Stages — Tous droits réservés</p>
-                <p>Stage & Alternance &middot; France</p>
-            </div>
-        </div>
-    </footer>
+
+        </main>
+
+        <!-- Footer -->
+
+        <%- include('../componnents/footer') %>
 
 </body>
+
 </html>
-
-
-
-
-

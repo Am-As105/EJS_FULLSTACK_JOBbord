@@ -7,8 +7,6 @@ const get_offers = require('./reposietries/offerRepository');
 
 
 const app  = express();
-
-
 // app.get('/' , (lijay, lighadi) => 
 // {
 
@@ -33,7 +31,8 @@ const app  = express();
 const index_page = require('./routes/routes');
 
 app.use('/',index_page);
-app.use('/offers',index_page)
+// app.use('  ',index_page)
+// app.use('/offers/:id')
 app.use(express.static('public'));
 
 app.set('view engine', 'ejs');
