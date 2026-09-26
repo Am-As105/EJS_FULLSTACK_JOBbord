@@ -45,15 +45,19 @@ async function createOffer(data)
         (
             offer_title,
             offer_description,
+            offer_slug,
+            offer_city,
             offer_profile_sought,
             offer_contact_info,
             company_company_id,
             contra_type_id
         )
-        VALUES (?, ?, ?, ?, ?, ?)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?)
     `, [
         data.title,
         data.description,
+        data.slug,
+        data.city,
         data.profile,
         data.contact,
         data.company,
@@ -63,10 +67,9 @@ async function createOffer(data)
     return result.insertId;
 }
 
-
-async function updateOffer(id, data)
+async function updateOffer(slug, data, new_slug)
 {
-    await db.promise().query(`
+    const [result] = await db.promise().query(`
         UPDATE offer
         SET
             offer_title = ?,
@@ -74,20 +77,23 @@ async function updateOffer(id, data)
             offer_profile_sought = ?,
             offer_contact_info = ?,
             company_company_id = ?,
-            contra_type_id = ?
-        WHERE offer_id = ?
-    `, [
+            contra_type_id = ?,
+            offer_slug = ?
+        WHERE offer_slug = ?
+    `, 
+    [
         data.title,
         data.description,
         data.profile,
         data.contact,
         data.company,
         data.contract,
-        id
+        new_slug,
+        slug
     ]);
+
+    return result;
 }
-
-
 async function deleteOffer(id)
 {
     await db.promise().query(`
@@ -107,7 +113,14 @@ async function get_companies()
     return rows;
 }
 
+async function get_contraType()
+{
+    const [rows] = await db.promise().query(`
+        SELECT contra_type_id, contra_label FROM contra_type
+        `)
+        return rows;
 
+}
 
 module.exports = {
     get_offers,
@@ -115,5 +128,6 @@ module.exports = {
     createOffer,
     updateOffer,
     deleteOffer,
-    get_companies
+    get_companies,
+    get_contraType
 };
