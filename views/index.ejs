@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 
 <html lang="fr">
 
@@ -14,13 +15,12 @@
 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 
-    <!-- <link rel="stylesheet" href="../public/css/style.css"> -->
-
-    <link rel="stylesheet" href="public/css/home.css">
+    <link rel="stylesheet" href="/css/home.css">
 
 </head>
 
@@ -29,6 +29,8 @@
     <%- include('./componnents/header') %>
 
     <main>
+
+        <!-- HERO -->
 
         <section class="hero bg-light">
 
@@ -48,8 +50,9 @@
 
                         <div class="search-input-wrapper">
 
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" aria-hidden="true">
 
                                 <circle cx="11" cy="11" r="8"></circle>
 
@@ -57,16 +60,21 @@
 
                             </svg>
 
-                            <label for="main-search" class="sr-only"
-                                style="position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0;">
+                            <label for="main-search-desktop" class="sr-only">
                                 Recherche
                             </label>
 
-                            <input type="text" id="main-search-desktop" class="hide-on-mobile" name="q"
+                            <input type="text"
+                                id="main-search-desktop"
+                                class="hide-on-mobile"
+                                name="q"
                                 placeholder="Métier, entreprise, mot-clé..."
                                 style="border:none;background:transparent;width:100%;outline:none;padding:8px;">
 
-                            <input type="text" id="main-search-mobile" class="hide-on-desktop" name="q_mobile"
+                            <input type="text"
+                                id="main-search-mobile"
+                                class="hide-on-desktop"
+                                name="q_mobile"
                                 placeholder="Métier, mot-clé..."
                                 style="border:none;background:transparent;width:100%;outline:none;padding:8px;">
 
@@ -81,11 +89,8 @@
                     <div class="popular-tags">
 
                         <a href="#" class="tag">React</a>
-
                         <a href="#" class="tag">Python</a>
-
                         <a href="#" class="tag">UX/UI</a>
-
                         <a href="#" class="tag">Node.js</a>
 
                     </div>
@@ -123,21 +128,30 @@
                 <div class="hero-right">
 
                     <h1 class="hide-on-mobile">
+
                         Trouve ton<br>
+
                         <span class="highlight-underline">stage idéal</span>
+
                     </h1>
 
                     <h1 class="hide-on-desktop">
+
                         Trouve ton stage ou alternance idéale
+
                     </h1>
 
                     <p class="hide-on-mobile">
+
                         Des milliers d'offres de stage et d'alternance pour étudiants et
                         jeunes diplômés. Filtrez, candidatez, décrochez.
+
                     </p>
 
                     <p class="hide-on-desktop">
+
                         Des offres pour étudiants et jeunes diplômés
+
                     </p>
 
                 </div>
@@ -145,6 +159,9 @@
             </div>
 
         </section>
+
+
+        <!-- FILTERS -->
 
         <section class="filters-bar">
 
@@ -154,27 +171,17 @@
 
                     <button class="filter-btn">
 
-                        <span class="hide-on-mobile">Toutes les villes</span>
+                        <span class="hide-on-mobile">
+                            Toutes les villes
+                        </span>
 
-                        <span class="hide-on-desktop">Ville</span>
+                        <span class="hide-on-desktop">
+                            Ville
+                        </span>
 
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-
-                            <polyline points="6 9 12 15 18 9"></polyline>
-
-                        </svg>
-
-                    </button>
-
-                    <button class="filter-btn">
-
-                        <span class="hide-on-mobile">Toutes les technos</span>
-
-                        <span class="hide-on-desktop">Technologie</span>
-
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
 
                             <polyline points="6 9 12 15 18 9"></polyline>
 
@@ -182,14 +189,41 @@
 
                     </button>
 
+
                     <button class="filter-btn">
 
-                        <span class="hide-on-mobile">Tous les contrats</span>
+                        <span class="hide-on-mobile">
+                            Toutes les technos
+                        </span>
 
-                        <span class="hide-on-desktop">Contrat</span>
+                        <span class="hide-on-desktop">
+                            Technologie
+                        </span>
 
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+
+                            <polyline points="6 9 12 15 18 9"></polyline>
+
+                        </svg>
+
+                    </button>
+
+
+                    <button class="filter-btn">
+
+                        <span class="hide-on-mobile">
+                            Tous les contrats
+                        </span>
+
+                        <span class="hide-on-desktop">
+                            Contrat
+                        </span>
+
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
 
                             <polyline points="6 9 12 15 18 9"></polyline>
 
@@ -199,14 +233,16 @@
 
                 </div>
 
+
                 <div class="filters-group">
 
                     <button class="filter-btn">
 
                         Plus récent
 
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
 
                             <polyline points="6 9 12 15 18 9"></polyline>
 
@@ -219,6 +255,9 @@
             </div>
 
         </section>
+
+
+        <!-- OFFERS -->
 
         <section id="offres" class="job-offers bg-light">
 
@@ -244,39 +283,79 @@
 
                                 </div>
 
+
                                 <div class="card-header-right"
-                                    style="display: flex; align-items: center; gap: 8px;">
+                                    style="display:flex;align-items:center;gap:8px;">
 
                                     <span class="badge badge-stage">
-                                        Stage
+                                        <%= offer.contra_label %>
                                     </span>
 
-                                    <button class="btn-three-dots" aria-label="Menu d'actions"
-                                        style="width: 28px; height: 28px; border-radius: 6px; display: flex; align-items: center; justify-content: center; background: transparent; color: #a0a0a0; border: 1px solid #222222; cursor: pointer;">
 
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round">
+                                    <!-- MENU 3 POINTS -->
 
-                                            <circle cx="12" cy="12" r="1"></circle>
+                                    <div class="actions-menu">
 
-                                            <circle cx="12" cy="5" r="1"></circle>
+                                        <button
+                                            class="btn-three-dots"
+                                            type="button"
+                                            aria-label="Menu d'actions"
+                                            style="width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;background:transparent;color:#a0a0a0;border:1px solid #222222;cursor:pointer;">
 
-                                            <circle cx="12" cy="19" r="1"></circle>
+                                            <svg width="16" height="16"
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                stroke-width="2"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round">
 
-                                        </svg>
+                                                <circle cx="12" cy="12" r="1"></circle>
+                                                <circle cx="12" cy="5" r="1"></circle>
+                                                <circle cx="12" cy="19" r="1"></circle>
 
-                                    </button>
+                                            </svg>
+
+                                        </button>
+
+
+                                        <!-- OPTIONS -->
+
+                                        <div class="actions-dropdown">
+
+                                            <a href="/offers/<%= offer.offer_slug %>/edit">
+                                                Modifier
+                                            </a>
+
+                                            <button
+                                                type="button"
+                                                class="delete-offer"
+                                                data-id="<%= offer.offer_id %>">
+
+                                                Supprimer
+
+                                            </button>
+
+                                        </div>
+
+                                    </div>
 
                                 </div>
 
                             </div>
 
+
+                            <!-- LOCATION -->
+
                             <div class="job-location">
 
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" aria-hidden="true">
+                                <svg width="16" height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round">
 
                                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
 
@@ -284,19 +363,23 @@
 
                                 </svg>
 
-                                Bordeaux
+                                <%= offer.offer_city %>
 
                             </div>
+
+
+                            <!-- TAGS -->
 
                             <div class="job-tags">
 
                                 <span class="tag">Node.js</span>
-
                                 <span class="tag">Vue.js</span>
-
                                 <span class="tag">PostgreSQL</span>
 
                             </div>
+
+
+                            <!-- FOOTER -->
 
                             <div class="card-footer">
 
@@ -306,13 +389,19 @@
 
                                 </span>
 
+
                                 <div class="card-actions">
 
-                                    <button class="btn-icon active" aria-label="Retirer des favoris">
+                                    <button class="btn-icon active"
+                                        aria-label="Retirer des favoris">
 
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
-                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" aria-hidden="true">
+                                        <svg width="16" height="16"
+                                            viewBox="0 0 24 24"
+                                            fill="currentColor"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round">
 
                                             <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path>
 
@@ -320,13 +409,19 @@
 
                                     </button>
 
-                                    <a href="/offers/<%= offer.offer_slug %>" class="btn-link">
+
+                                    <a href="/offers/<%= offer.offer_slug %>"
+                                        class="btn-link">
 
                                         Voir l'offre
 
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round" aria-hidden="true">
+                                        <svg width="16" height="16"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round">
 
                                             <line x1="5" y1="12" x2="19" y2="12"></line>
 
@@ -352,8 +447,16 @@
 
     </main>
 
+
     <%- include('./componnents/footer') %>
+
+
+    <!-- MENU JAVASCRIPT -->
+
+    <script src="js/show_options.js"></script>
 
 </body>
 
 </html>
+```
+
