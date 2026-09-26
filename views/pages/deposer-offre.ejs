@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,82 +11,106 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/deposer.css">
 </head>
+
 <body>
 
-      <%- include('../componnents/header')>
+    <%- include('../componnents/header')%>
 
-    <main class="main-content">
-        <div class="container">
-            
-            <h1 class="page-title">Publier une offre</h1>
+        <main class="main-content">
+            <div class="container">
 
-            <div class="form-card">
-                <form action="#" method="POST">
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="form-label" for="company">Nom de l'entreprise *</label>
-                            <input class="form-control" type="text" id="company" placeholder="ex. Nexalab" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="title">Titre du poste *</label>
-                            <input class="form-control" type="text" id="title" placeholder="ex. Développeur Front-End" required>
-                        </div>
-                    </div>
+                <h1 class="page-title">Publier une offre</h1>
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="form-label" for="city">Ville *</label>
-                            <input class="form-control" type="text" id="city" placeholder="ex. Paris" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="contract">Type de contrat *</label>
-                            <div class="select-wrapper">
-                                <select class="form-control" id="contract" required>
-                                    <option value="" disabled selected>Choisir...</option>
-                                    <option value="Stage">Stage</option>
-                                    <option value="Alternance">Alternance</option>
-                                </select>
-                                <svg class="select-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </div>
-                        </div>
-                    </div>
+                <div class="form-card">
+                    <form action="/offers" method="POST">
 
-                    <div class="form-group">
-                        <label class="form-label" for="technologies">Technologies</label>
-                        <input class="form-control" type="text" id="technologies" placeholder="React, TypeScript...">
-                        
-                    </div>
+                        <% if (errors && errors.title) { %>
+                            <p>
+                                <%= errors.title %>
+                            </p>
+                            <% } %>
 
-                    <div class="form-group">
-                        <label class="form-label" for="description">Description de la mission *</label>
-                        <textarea class="form-control" id="description" placeholder="Contexte, responsabilités..." required></textarea>
-                    </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label" for="company">Nom de l'entreprise *</label>
+                                        <select class="form-control" id="company" name="company" required>
+                                            <option value="" disabled selected>Choisir une entreprise</option>
 
-                    <div class="form-group">
-                        <label class="form-label" for="profile">Profil recherché</label>
-                        <textarea class="form-control" id="profile" placeholder="Formation, compétences..."></textarea>
-                    </div>
+                                            <% companies.forEach(company=> { %>
+                                                <option value="<%= company.company_id %>">
+                                                    <%= company.company_name %>
+                                                </option>
+                                                <% }) %>
+                                        </select>
+                                    </div>
 
-                    <div class="form-group">
-                        <label class="form-label" for="contact">Contact ou lien de candidature</label>
-                        <input class="form-control" type="text" id="contact" placeholder="email ou URL" required>
-                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="title">Titre du poste *</label>
+                                        <input class="form-control" type="text" id="title" name="title"
+                                            placeholder="ex. Développeur Front-End" required>
+                                    </div>
+                                </div>
 
-                    <button type="submit" class="btn btn-full btn-black">Publier l'offre</button>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label" for="city">Ville *</label>
+                                        <input class="form-control" type="text" id="city" name="city"
+                                            placeholder="ex. Paris" required>
+                                    </div>
 
-                </form>
+                                    <div class="form-group">
+                                        <label class="form-label" for="contract">Type de contrat *</label>
+
+                                        <div class="select-wrapper">
+                                            <select class="form-control" id="contract" name="contract" required>
+
+                                                <option value="" disabled selected>Choisir...</option>
+                                                <option value="Stage">Stage</option>
+                                                <option value="Alternance">Alternance</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="technologies">Technologies</label>
+
+                                    <input class="form-control" type="text" id="technologies" name="technologies"
+                                        placeholder="React, TypeScript...">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="description">Description de la mission *</label>
+
+                                    <textarea class="form-control" id="description" name="description"
+                                        placeholder="Contexte, responsabilités..." required></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="profile">Profil recherché</label>
+
+                                    <textarea class="form-control" id="profile" name="profile"
+                                        placeholder="Formation, compétences..."></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="contact">Contact ou lien de candidature</label>
+
+                                    <input class="form-control" type="text" id="contact" name="contact"
+                                        placeholder="email ou URL" required>
+                                </div>
+
+                                <button type="submit" class="btn btn-full btn-black">
+                                    Publier l'offre
+                                </button>
+
+                    </form>
+                </div>
+
             </div>
+        </main>
 
-        </div>
-    </main>
 
-     
 </body>
+
 </html>
-
-
-
-
-
-

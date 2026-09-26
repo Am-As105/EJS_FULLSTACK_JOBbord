@@ -29,7 +29,7 @@ const app  = express();
 // })
 
 const index_page = require('./routes/routes');
-
+app.use(express.urlencoded({ extended: true }));
 app.use('/',index_page);
 // app.use('  ',index_page)
 // app.use('/offers/:id')

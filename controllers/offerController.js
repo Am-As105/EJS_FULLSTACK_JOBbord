@@ -1,3 +1,4 @@
+const { response, request } = require('express');
 const offerRepository = require('../reposietries/offerRepository');
 
 async function get_index(request, response)
@@ -20,35 +21,47 @@ async function get_offerByslug(request, response)
     });
 }
 
+async function get_deposerOffer(request, response)
+{
+    const companies = await offerRepository.get_companies();
+
+    response.render('pages/deposer-offre', {
+        companies,
+        errors: {}
+    });
+}
+    
+
 async function createOffer(request, response)
 {
     const data = request.body;
      
-    let error = {};
+    let errors = {};
+    console.log(data);
 
     if (!data.title || data.title.trim().length < 3)
-        error.title = "Le titre doit contenir au moins 3 caractères";
+        errors.title = "Le titre doit contenir au moins 3 caractères";
     if (!data.description || data.description.trim().length < 10)
-        error.description = "La description doit contenir au moins 10 caractères";
+        errors.description = "La description doit contenir au moins 10 caractères";
 
     if (!data.profile || data.profile.trim().length < 5)
-        error.profile = "Le profil recherché est obligatoire";
+        errors.profile = "Le profil recherché est obligatoire";
 
-    if (!data.contact || data.contact.include('@'))
-        error.contact = "Veuillez entrer un email valide";
+    if (!data.contact || data.contact.includes('@'))
+        errors.contact = "Veuillez entrer un email valide";
 
     if(!data.company)
-        error.company = "L'entreprise est obligatoire";
+        errors.company = "L'entreprise est obligatoire";
     if (!data.contract)
-        error.contact = "Le type de contrat est obligatoire";
+        errors.contact = "Le type de contrat est obligatoire";
 
-    if(Object.keys(error).length > 0)
-        return response.status(400).render('pages/deposer-offre' , { error ,data})
+    if(Object.keys(errors).length > 0)
+        return response.status(400).render('pages/deposer-offre' , { errors,data})
 
 
     await offerRepository.createOffer(data);
 
-    response.redirect('/offers');
+    response.redirect('/#offers');
 }
 
 async function updateOffer(request, response)
@@ -70,10 +83,13 @@ async function deleteOffer(request, response)
     response.redirect('/offers');
 }
 
+
+
 module.exports = {
     get_index,
     get_offerByslug,
     createOffer,
     updateOffer,
-    deleteOffer
+    deleteOffer,
+    get_deposerOffer
 };

@@ -97,10 +97,23 @@ async function deleteOffer(id)
 }
 
 
+async function get_companies()
+{
+    const [rows] = await db.promise().query(`
+        SELECT company_id, company_name
+        FROM company
+    `);
+
+    return rows;
+}
+
+
+
 module.exports = {
     get_offers,
     get_offerByslug,
     createOffer,
     updateOffer,
-    deleteOffer
+    deleteOffer,
+    get_companies
 };
