@@ -23,7 +23,28 @@ async function get_offerByslug(request, response)
 async function createOffer(request, response)
 {
     const data = request.body;
-    
+     
+    let error = {};
+
+    if (!data.title || data.title.trim().length < 3)
+        error.title = "Le titre doit contenir au moins 3 caractères";
+    if (!data.description || data.description.trim().length < 10)
+        error.description = "La description doit contenir au moins 10 caractères";
+
+    if (!data.profile || data.profile.trim().length < 5)
+        error.profile = "Le profil recherché est obligatoire";
+
+    if (!data.contact || data.contact.include('@'))
+        error.contact = "Veuillez entrer un email valide";
+
+    if(!data.company)
+        error.company = "L'entreprise est obligatoire";
+    if (!data.contract)
+        error.contact = "Le type de contrat est obligatoire";
+
+    if(Object.keys(error).length > 0)
+        return response.status(400).render('pages/deposer-offre' , { error ,data})
+
 
     await offerRepository.createOffer(data);
 
