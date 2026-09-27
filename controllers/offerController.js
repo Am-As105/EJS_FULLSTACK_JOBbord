@@ -169,7 +169,7 @@ async function filter_offers(request, response)
 {
     const filter = request.query;
     const offers = await offerRepository.filter_offers(filters);
-    response.render('index', { offers });
+    response.render('index', {offers });
     
 }
 
