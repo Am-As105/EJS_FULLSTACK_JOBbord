@@ -184,7 +184,7 @@ async function filter_offers(filters)
 
     if (filters.sort === 'recent')
     {
-        sql = sql + `ORDER BY offer.date_publication DESC`;
+        sql = sql + ` ORDER BY offer.date_publication DESC`;
     }
     else if (filters.sort === 'oldest')
     {
