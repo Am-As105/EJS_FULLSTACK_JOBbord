@@ -121,6 +121,80 @@ async function get_contraType()
         return rows;
 
 }
+async function search_offers(search)
+{
+    const [rows] = await db.promise().query(`
+        SELECT
+            offer.*,
+            company.company_name,
+            contra_type.contra_label
+        FROM offer
+        JOIN company
+            ON offer.company_company_id = company.company_id
+        JOIN contra_type
+            ON offer.contra_type_id = contra_type.contra_type_id
+        WHERE
+        offer.offer_title LIKE ?
+        OR offer.offer_description LIKE ?
+        OR company.company_name LIKE ?
+        OR offer.offer_city LIKE ?
+    `, [
+        `%${search}%`,
+        `%${search}%`,
+        `%${search}%`,
+        `%${search}%`
+    ]);
+
+    return rows;
+}
+async function filter_offers(filters)
+{
+    let sql = `
+        SELECT
+            offer.*,
+            company.company_name,
+            contra_type.contra_label
+        FROM offer
+        JOIN company
+        ON offer.company_company_id = company.company_id
+        JOIN contra_type
+        ON offer.contra_type_id = contra_type.contra_type_id
+        WHERE 1=1
+    `;
+
+    const params = [];
+
+    if (filters.city)
+    {
+        sql = sql + ` AND offer.offer_city = ?`;
+        params.push(filters.city);
+    }
+
+    if (filters.contract)
+    {
+        sql = sql + ` AND contra_type.contra_label = ?`;
+        params.push(filters.contract);
+    }
+
+    if (filters.technology)
+    {
+        sql = sql + ` AND technology.technology_name = ?`;
+        params.push(filters.technology);
+    }
+
+    if (filters.sort === 'recent')
+    {
+        sql = sql + ` ORDER BY offer.date_publication DESC`;
+    }
+    else if (filters.sort === 'oldest')
+    {
+        sql = sql + ` ORDER BY offer.date_publication ASC`;
+    }
+
+    const [rows] = await db.promise().query(sql, params);
+
+    return rows;
+}
 
 module.exports = {
     get_offers,
@@ -129,5 +203,8 @@ module.exports = {
     updateOffer,
     deleteOffer,
     get_companies,
-    get_contraType
+    get_contraType,
+    search_offers,
+    filter_offers
+
 };
