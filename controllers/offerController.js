@@ -5,9 +5,7 @@ async function get_index(request, response)
 {
     const data_offers = await offerRepository.get_offers();
 
-    response.render('index', {
-        offers: data_offers
-    });
+    response.render('index', {offers: data_offers});
 }
 
 async function get_offerByslug(request, response)
@@ -72,6 +70,7 @@ async function createOffer(request, response)
 
     response.redirect('/#offers');
 }
+
 
 // async function updateOffer(request, response)
 // {
@@ -140,7 +139,7 @@ async function updateOffer(request, response)
             offer
         });
     }
-
+    
     const new_slug = data.title.toLowerCase().trim().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
 
     await offerRepository.updateOffer(old_slug, data, new_slug);
@@ -157,7 +156,22 @@ async function deleteOffer(request, response)
     response.redirect('/offers');
 }
 
+async function search_offers(request, response)
+{
+    const search = request.query.search;
 
+    const offers = await offerRepository.search_offers(search);
+
+    response.render('index', { offers });
+}
+
+async function filter_offers(request, response)
+{
+    const filter = request.query;
+    const offers = await offerRepository.filter_offers(filters);
+    response.render('index', { offers });
+    
+}
 
 module.exports = {
     get_index,
@@ -166,5 +180,8 @@ module.exports = {
     get_editOffer,
     updateOffer,
     deleteOffer,
-    get_deposerOffer
+    get_deposerOffer,
+    search_offers,
+    filter_offers
+    
 };
